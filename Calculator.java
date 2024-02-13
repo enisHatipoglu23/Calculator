@@ -1,52 +1,66 @@
 package com.company;
 
-import javax.security.sasl.SaslClient;
 import java.util.Scanner;
 
 public class Calculator {
     Scanner scanner = new Scanner(System.in);
 
-
     void calc(){
         System.out.println("-*- CALCULATOR -*-");
 
-        System.out.println("1 + Sum" + "\n2 - Minus" + "\n3 * Multiply"
-        + "\n4 / Divide" + "\n5 % Mod" + "\n6 ^ Pow" + "\n7**(0.5) Sqrt" + "\n8 ! Go out");
-        int pick = scanner.nextInt();
-        if (pick >= 1 && pick <= 8){
-            switch (pick){
+        System.out.println("""
+                1- Sum
+                2- Minus
+                3- Multiply
+                4- Divide
+                5- Mod
+                6- Pow
+                7- Sqrt
+                8- Exit""");
+
+        System.out.println("Select one:");
+
+        //For the selecting and operation part i'm using scanner function.
+        int select = scanner.nextInt();
+        if (select >= 1 && select <= 8){
+            //Using switch case rather than if, because switch case is more functional than if in such cases.
+            switch (select){
                 case 1:
-                    System.out.println("nums--->");
+                    System.out.println("Numbers:");
+                    //Using double datatype for integer, float or big numbers.
                     sum(scanner.nextDouble(), scanner.nextDouble());
+                    //The reason i called calc() function in switch case is that switch case has a "break" code
+                    //at the end of the case's that's cause function to finish. That's why i added calc() to
+                    //start again the function.
                     calc();
                     break;
                 case 2:
-                    System.out.println("nums--->");
+                    System.out.println("Numbers:");
                     minus(scanner.nextDouble(), scanner.nextDouble());
                     calc();
                     break;
                 case 3:
-                    System.out.println("nums--->");
+                    System.out.println("Numbers:");
                     multiply(scanner.nextDouble(), scanner.nextDouble());
                     calc();
                     break;
                 case 4:
-                    System.out.println("nums--->");
+                    System.out.println("Numbers:");
                     divide(scanner.nextDouble(), scanner.nextDouble());
                     calc();
                     break;
                 case 5:
-                    System.out.println("nums--->");
+                    System.out.println("Numbers:");
                     mod(scanner.nextDouble(), scanner.nextDouble());
                     calc();
                     break;
                 case 6:
-                    System.out.println("nums--->");
+                    System.out.println("Numbers:");
                     pow(scanner.nextDouble(), scanner.nextDouble());
                     calc();
                     break;
                 case 7:
-                    System.out.println("num--->");
+                    System.out.println("Numbers:");
                     sqrt(scanner.nextInt());
                     calc();
                     break;
@@ -67,7 +81,7 @@ public class Calculator {
     void sum(double num1, double num2){
 
         System.out.println("num1: " + num1 + "\nnum2: " + num2);
-        System.out.println("Result: " + num1 + num2); ;
+        System.out.println("Result: " + (num1 + num2));
     }
 
     void minus(double num1, double num2){
